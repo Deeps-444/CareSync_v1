@@ -1,0 +1,509 @@
+/* ==================
+   GLOBAL STYLES & VARIABLES
+   ================== */
+:root {
+  --dark-teal: #16697a;
+  --medium-blue: #489fb5;
+  --light-blue: #82c0cc;
+  --off-white: #ede7e3;
+  --orange-accent: #ffa62b;
+
+  --text-dark: #1f2937; /* Using a dark gray for readability */
+  --text-light: #f9fafb;
+  --white: #ffffff;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--off-white);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--dark-teal); /* Main headings in dark teal */
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.15rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
+
+/* ==================
+   BUTTONS
+   ================== */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--orange-accent);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: #e69525;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  background-color: var(--medium-blue);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background-color: var(--light-blue);
+  color: var(--text-dark);
+}
+
+/* ==================
+   HEADER & NAVBAR
+   ================== */
+.navbar {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+.logo-text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #2b2b2b;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  margin-left: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+/* Underline effect on hover */
+.nav-links a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--medium-blue);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:not(.btn):hover::after {
+  width: 100%;
+}
+
+.hamburger-menu {
+  display: none;
+  font-size: 1.8rem;
+  color: var(--dark-teal);
+  cursor: pointer;
+}
+
+/* ==================
+   HERO SECTION
+   ================== */
+.hero {
+  background-color: var(--white);
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-text h1 {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.hero-image img {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ==================
+   FEATURES SECTION
+   ================== */
+.features {
+  background-color: var(--off-white);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+  height: 80px;
+  margin: 0 auto 20px auto;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.feature-card .btn-secondary {
+  margin-top: 15px;
+  background-color: var(--off-white);
+  color: var(--medium-blue);
+  border: 2px solid var(--medium-blue);
+}
+
+.feature-card .btn-secondary:hover {
+  background-color: var(--medium-blue);
+  color: var(--white);
+}
+
+/* ==================
+   ABOUT SECTION
+   ================== */
+.about {
+  background-color: var(--white);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.about-image img {
+  max-width: 450px;
+}
+
+.text-accent {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--orange-accent);
+  text-transform: uppercase;
+}
+
+.about-text h2 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.about-text ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.about-text li {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.about-text .fa-check-circle {
+  color: var(--medium-blue);
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+/* ==================
+   TEAM SECTION (NEW)
+   ================== */
+.team {
+  background-color: var(--off-white);
+}
+
+.team-grid {
+  display: grid;
+  /* 4 columns on desktop */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.team-member {
+  background-color: var(--white);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+}
+
+.team-member img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Prevents image stretching */
+  margin: 0 auto 15px auto;
+  border: 4px solid var(--light-blue);
+}
+
+.team-member h3 {
+  font-size: 1.25rem;
+  color: var(--dark-teal);
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  font-size: 0.95rem;
+  color: var(--orange-accent); /* Role in accent color */
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: var(--medium-blue);
+  font-size: 1.5rem;
+  margin: 0 8px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--dark-teal);
+}
+
+/* ==================
+   CTA SECTION
+   ================== */
+.cta {
+  background-color: var(--medium-blue);
+  color: var(--white);
+  text-align: center;
+}
+
+.cta h2 {
+  color: var(--white);
+  font-size: 2.5rem;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* ==================
+   FOOTER
+   ================== */
+.footer {
+  background-color: var(--dark-teal);
+  color: var(--off-white);
+  text-align: center;
+  padding: 30px 0;
+}
+
+/* ==================
+   RESPONSIVE
+   ================== */
+@media (max-width: 992px) {
+  /* On tablets, show 2 team members per row */
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  /* Mobile Nav */
+  .nav-menu {
+    position: absolute;
+    top: 70px; /* Height of navbar */
+    right: -100%; /* Start off-screen */
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+    transition: right 0.3s ease-in-out;
+  }
+
+  .nav-menu.active {
+    right: 0; /* Slide in */
+  }
+
+  .nav-links {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+    text-align: center;
+  }
+
+  .nav-links .btn {
+    width: 80%;
+    margin: 10px auto 0 auto;
+    text-align: center;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  /* Hero Section */
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-text {
+    order: 2; /* Text below image */
+  }
+
+  .hero-image {
+    order: 1;
+    margin-bottom: 30px;
+  }
+
+  /* Features Section */
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* About Section */
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-image {
+    margin-bottom: 30px;
+  }
+
+  .about-text h2 {
+    text-align: center;
+  }
+
+  .about-text li {
+    justify-content: center;
+  }
+
+  /* Team Section */
+  .team-grid {
+    /* On small phones, stack them in 1 column */
+    grid-template-columns: 1fr;
+  }
+}
